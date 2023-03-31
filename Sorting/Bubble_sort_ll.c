@@ -35,11 +35,20 @@ void printLL(){
             printf("->|%d|",temp->data);
             temp=temp->next;
         }
+        printf("\n");
 }
 int b_sort(int size){
     b *temp=head;
-    while(temp!=NULL){
-        
+    for(int i=0;i<size-1;i++){
+        for(int j=0;j<size-i-1;j++){
+            if(temp->data>temp->next->data){
+                int temp1=temp->data;
+                temp->data=temp->next->data;
+                temp->next->data=temp1; 
+            }
+            temp=temp->next;
+        }
+        temp=head;
     }
     return 0;
 }
@@ -52,4 +61,5 @@ int main(){
     }
     printLL();
     b_sort(size);
+    printLL();
 }
