@@ -5,7 +5,7 @@ int b_sort(int arr[],int size){
     
         for(int j=0;j<size-1;j++){
             if(arr[j]>arr[j+1]){
-                int temp=arr[j];
+                temp=arr[j];
                 arr[j]=arr[j+1];
                 arr[j+1]=temp;
                 j=-1;
