@@ -26,8 +26,10 @@ int merge(int arr1[],int arr2[],int arr3[],int size1,int size2){
             ++j;
         }else if(i>=size2 && i>size1){
             arr3[i]=arr2[k];
+            k++;
         }else if(i>=size1 && i>size2){
             arr3[i]=arr1[j];
+            j++;
         }
     }
 
@@ -69,7 +71,7 @@ int main(){
     }
 
     int arr3[size1+size2];
-    merge(arr1,arr2,arr3,size1,size2);      //merging 2 arrays nd comparing both array elements so that elements are stored in sorted manner
+    merge(arr1,arr2,arr3,size1,size2);      //merging 2 arrays + comparing both array elements so that elements are stored in sorted manner
     
     printf("\n");
     for(int i=0;i<size1+size2;i++){
