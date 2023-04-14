@@ -29,7 +29,7 @@ m* createNode(){
 int countNode(){
 	int count;
 	m *temp=head;
-	while(temp!=head){
+	while(temp!=NULL){
 		temp=temp->next;
 		count++;
 	}
@@ -138,7 +138,6 @@ void delAtPos(){
 
 void showll(){
 	m *temp=head;
-	getchar();
 	while(temp!=NULL){
 		printf("|Mall Name:%s|->",temp->name);
 		printf("|No.of Shops:%d|->",temp->no_of_shops);
