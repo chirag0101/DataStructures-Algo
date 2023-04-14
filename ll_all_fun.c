@@ -66,9 +66,9 @@ void addAtPos(){
 	getchar();
 	int count=countNode();
 	int pos;
+	getchar();
 	printf("\nEnter Pos to INSERT node:");
 	scanf("%d",&pos);
-	getchar();
 	if(pos==1){
 		addFirst();
 	}else if(pos==count){
@@ -148,6 +148,20 @@ void showll(){
 	}
 }
 
+void reversell(){
+	m *cur=head;
+	m *prev=NULL;
+	m *next=head;
+	
+	while(cur!=NULL){
+		next=cur->next;
+		cur->next=prev;
+		prev=cur;
+		cur=next;
+	}
+	head=prev;
+}
+
 void main(){
 		while(1){
 			int ch;
@@ -158,8 +172,9 @@ void main(){
 			printf("\n4.Delete Node At First");
 			printf("\n5.Delete Node At Last");
 			printf("\n6.Delete Node At Pos");
-			printf("\n7.Display LL");
-			printf("\n8.Exit\n");
+			printf("\n7.Reverse LL");
+			printf("\n8.Display LL");
+			printf("\n9.Exit\n");
 			scanf("%d",&ch);
 
 			switch(ch){
@@ -187,10 +202,14 @@ void main(){
 						break;
 
 				case 7: 
+						reversell();
+						break;
+
+				case 8: 
 						showll();
 						break;
 
-				case 8:
+				case 9:
 						exit(0);
 						break;
 

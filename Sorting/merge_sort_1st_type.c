@@ -16,20 +16,21 @@ int b_sort(int arr[],int size){
 }
 
 int merge(int arr1[],int arr2[],int arr3[],int size1,int size2){
-    int i,j;
-    for(int i=0;i<size1;i++){
-            arr3[i]=arr1[i];
-    }
-
-    for(int i=0;i<size2;i++){
-        for(int j=size1;j<size2+size1;j++){
-            arr3[j]=arr2[i];
-            i++;
+    int i,j=0,k=0;
+    for(int i=0;i<size1+size2;i++){
+        if((j<size1) && (arr1[j]>arr2[k])){
+            arr3[i]=arr2[k];
+            ++k;
+        }else if(j<size1 && arr1[j]<arr2[k]){
+            arr3[i]=arr1[j];
+            ++j;
+        }else if(i>=size2 && i>size1){
+            arr3[i]=arr2[k];
+        }else if(i>=size1 && i>size2){
+            arr3[i]=arr1[j];
         }
-        break;
     }
 
-    b_sort(arr3,size1+size2);
     return 0;
 }
 int main(){
@@ -55,7 +56,7 @@ int main(){
         scanf("%d",&arr2[i]);
     }
 
-    b_sort(arr2,size2);
+    b_sort(arr2,size2);                     //sorting 2 inputted arrays
 
     printf("\n");
     for(int i=0;i<size1;i++){
@@ -68,7 +69,7 @@ int main(){
     }
 
     int arr3[size1+size2];
-    merge(arr1,arr2,arr3,size1,size2);
+    merge(arr1,arr2,arr3,size1,size2);      //merging 2 arrays nd comparing both array elements so that elements are stored in sorted manner
     
     printf("\n");
     for(int i=0;i<size1+size2;i++){
