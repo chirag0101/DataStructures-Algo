@@ -105,19 +105,6 @@ void delLast(){
     }
 }
 
-void printDll(){
-    if(head==NULL){
-        printf("\nDll Empty!");
-    }else{
-        n *temp=head;
-        while(temp!=NULL){
-            printf("->|%d|",temp->data);
-            temp=temp->next;
-        }
-        printf("\n" );
-    }
-}
-
 void delAtPos(){
     int pos;
     int count=countNode();
@@ -141,6 +128,33 @@ void delAtPos(){
     }
 }
 
+void reverseDLL(){
+    n *cur=head;
+    n* prev=NULL;
+    n* next=head;
+
+    while(cur!=NULL){
+        next=cur->next;
+        cur->next=prev;
+        cur->prev=next;
+        prev=cur;
+        cur=cur->prev;
+    }
+    head=prev;
+}
+
+void printDll(){
+    if(head==NULL){
+        printf("\nDll Empty!");
+    }else{
+        n *temp=head;
+        while(temp!=NULL){
+            printf("->|%d|<-",temp->data);
+            temp=temp->next;
+        }
+        printf("\n" );
+    }
+}
 
 void main(){
 		while(1){
@@ -152,8 +166,9 @@ void main(){
 			printf("\n4.Delete Node At First");
 			printf("\n5.Delete Node At Last");
 			printf("\n6.Delete Node At Pos");
-			printf("\n7.Display DLL");
-			printf("\n8.Exit\n");
+			printf("\n7.Reverse LL");            
+			printf("\n8.Display DLL");
+			printf("\n9.Exit\n");
 			scanf("%d",&ch);
 
 			switch(ch){
@@ -181,10 +196,14 @@ void main(){
 						break;
 
 				case 7: 
-						printDll();
+						reverseDLL();
 						break;
 
 				case 8:
+						printDll();
+						break;
+                
+                case 9:
 						exit(0);
 						break;
 
