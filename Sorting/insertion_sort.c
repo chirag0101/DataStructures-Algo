@@ -1,10 +1,10 @@
 #include<stdio.h>
 int i_sort(int arr[],int size){
 
-    for(int i=1;i<=size-1;i++){        //for sorted list
+    for(int i=1;i<=size-1;i++){        //for usorted list
         int store=arr[i];
         int j;
-        for(j=i-1;j>=0 && store<arr[j];j--){    //for unsorted list
+        for(j=i-1;j>=0 && store<arr[j];j--){    //for sorted list
             arr[j+1]=arr[j];
         }
         arr[j+1]=store;
