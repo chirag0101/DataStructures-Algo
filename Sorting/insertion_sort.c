@@ -1,6 +1,6 @@
 #include<stdio.h>
 int i_sort(int arr[],int size){
-
+                 
     for(int i=1;i<=size-1;i++){                 //for unsorted list
         int store=arr[i];
         int j;
