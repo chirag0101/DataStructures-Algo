@@ -1,4 +1,4 @@
-#include<stdio.h
+#include<stdio.h>
 
 void merge(int arr[],int start,int mid,int end){
     int ele1=mid-start+1;
