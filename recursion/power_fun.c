@@ -1,20 +1,44 @@
 #include<stdio.h>
 //recursive:
+// int power_fun(int a,int n){
+//     if(n==0){
+//         return 1;
+//     }
+//     if(n==1){
+//         return a;
+//     }
+//     return a*power_fun(a,n-1);
+// }
+
+//recursive 2nd approach:
+// int power_fun(int a,int n){
+//     if(n==0){
+//         return 1;
+//     }
+//     if(n%2==0){
+//         return power_fun(a,n/2)*power_fun(a,n/2);
+//     }else{
+//         return power_fun(a,n/2)*power_fun(a,n/2)*a;
+//     }
+// }
+
+//recursive 3rd approach:
 int power_fun(int a,int n){
     if(n==0){
         return 1;
     }
-    if(n==1){
-        return a;
+    int x=power_fun(a,n/2);
+    if(n%2==0){
+        return x*x;
+    }else{
+        return x*x*a;
     }
-    return a*power_fun(a,n-1);
 }
-
 
 // int power_fun(int a,int n){
 //     int p=a;
 //     for(int i=0;i<n-1;i++){
-//         p=p*a;                 // =2*2,4*2,8*2,16*2
+//         p=p*a;
 //     }
 //     return p;
 // }
