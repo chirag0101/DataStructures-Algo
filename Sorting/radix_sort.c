@@ -22,12 +22,6 @@ void countingSort(int arr[],int size,int pos){
         arr[i]=op[i];
     }
     
-
-
-    // for(int i=0;i<10;i++){
-    //     printf("%d ",countArr[i]);
-    // }
-    // printf("\n");
 }
 void radix_sort(int arr[],int size){
 
