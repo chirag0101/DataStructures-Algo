@@ -30,10 +30,13 @@ int main(){
     printf("\nStrings:");
     printf("%s %s\n",str1,str2);
     
+    //Anagram logic:
     if(strlen(str1)==strlen(str2)){
         ssort(str1,strlen(str1));
         ssort(str2,strlen(str2));
+
         printf("%s %s",str1,str2);
+        
         for(i=0;i<strlen(str1)+1;i++){
             if(str1[i]==str2[i]){
                 count++;
@@ -41,11 +44,13 @@ int main(){
                 break;
             }
         }
+        
         if(count-1==strlen(str1)){
             printf("\nStrings are anagrams!\n");
         }else{
             printf("\nStrings aren't anagrams!\n");
         }
+        
     }else{
         printf("\nStrings aren't of equal size!\n");
     }
