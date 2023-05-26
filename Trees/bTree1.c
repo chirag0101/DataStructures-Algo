@@ -12,7 +12,7 @@ n *head=NULL;
 n* createNode(){
     n *newNode=(n*)malloc(sizeof(n));
     printf("Enter Data:");
-    scanf("%d",newNode->data);
+    scanf("%d",&newNode->data);
     newNode->left=NULL;
     newNode->right=NULL;
     return newNode;
@@ -34,12 +34,10 @@ void addRight(){
 void addLeftOfRight(){
     n *newNode=createNode();
     n *temp=head;
-    while(temp->right!=NULL){
+    while(temp->left!=NULL){
         temp=temp->right;
     }
-    if(temp->left==NULL){
-        temp->left=newNode;
-    }
+    temp->left=newNode;
 }
 
 void addLeft(){
@@ -59,84 +57,96 @@ void inOrder(n* root){
     if(root==NULL){
         return;
     }else{
-        display(root->left);
-        printf("%d\n",root->data);
-        display(root->right);
+        inOrder(root->left);
+        printf(" %d ",root->data);
+        inOrder(root->right);
+    }
+}
+
+void preOrder(n* root){
+    if(root==NULL){
+        return;
+    }else{
+        printf(" %d ",root->data);
+        preOrder(root->left);
+        preOrder(root->right);
+    }
+}
+
+void postOrder(n* root){
+    if(root==NULL){
+        return;
+    }else{
+        postOrder(root->left);
+        postOrder(root->right);
+        printf(" %d ",root->data);
     }
 }
 
 void main(){
             n *root=createNode();
             head=root;
-			int ch;
-			printf("\nEnter Choice:");
-			printf("\n1.Add Child Node of root node At Right");
-			printf("\n2.Add Child Node of root node At Left");
-			printf("\n3.Exit\n");
-			scanf("%d",&ch);
-
-			switch(ch){
-				case 1: 
-						addRight();
-						break;
-				case 2: 
-						addLeft();
-						break;
-                case 3:
-						exit(0);
-						break;
-				default:
-						printf("\nWrong Choice!");
-			}
-    while(1){
-    		printf("\nEnter Choice:");
-			printf("\n1.Add Node At Right");
-			printf("\n2.Add Node At Left");
-			printf("\n3.Exit\n");
-			scanf("%d",&ch);
-
-            if(ch==1){
-                int ch
+            while(1){
+                int ch;
                 printf("\nEnter Choice:");
                 printf("\n1.Add Child Node of root node At Right");
                 printf("\n2.Add Child Node of root node At Left");
                 printf("\n3.Exit\n");
                 scanf("%d",&ch);
 
-                switch(ch){
-                    case 1: 
-                            addLeftOfRight();
-                            break;
-                    case 2: 
+                    if(ch==1){
+                            addRight();
+                    }
+                    else if(ch==2){
                             addLeft();
+                    }else if(ch==3){
                             break;
-                    case 3:
-                            exit(0);
+                    }else{
+                        printf("\nWrong Choice!");
+                    }
+                }
+    while(1){
+                int ch;
+                printf("\nEnter Choice:");
+                printf("\n1.Add RL");
+                printf("\n2.Add Right");
+                printf("\n3.Exit\n");
+                scanf("%d",&ch);
+
+                if(ch==1){
+                            addLeftOfRight();
+                }else if(ch==2){
+                            addRight();
+                }
+                else if(ch==3){
                             break;
-                    default:
+                }else{
                             printf("\nWrong Choice!");
                 }
-            }else{
-                printf("\nEnter Choice:");
-                printf("\n1.Add Child Node of root node At Right");
-                printf("\n2.Add Child Node of root node At Left");
-                printf("\n3.Exit\n");
+                }
+        while(1){
+                int ch;
+                printf("\nEnter Traversal Choice:");
+                printf("\n1.InOrder");
+                printf("\n2.PreOrder");
+                printf("\n3.PostOrder");
+                printf("\n4.Exit\n");
                 scanf("%d",&ch);
 
-                switch(ch){
-                    case 1: 
-                            addRight();
-                            break;
-                    case 2: 
-                            addLeft();
-                            break;
-                    case 3:
-                            exit(0);
-                            break;
-                    default:
-                            printf("\nWrong Choice!");
+                if(ch==1){
+                    printf("\n");
+                    inOrder(root);
+                }else if(ch==2){
+                    printf("\n");
+                    preOrder(root);
+                }
+                else if(ch==3){
+                    printf("\n");
+                    postOrder(root);
+                }else if(ch==4){
+                    exit(0);
+                }else{
+                    printf("\nWrong Choice!");
                 }
             }
-    }
-    inOrder(root);
 }
