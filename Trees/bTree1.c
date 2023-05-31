@@ -218,6 +218,46 @@ void postOrder(n *root){
     }
 }
 
+int countNodes(n *root){
+    if(root==NULL){
+        return 0;
+    }else{
+            return 1+countNodes(root->left)+countNodes(root->right);
+    }
+}
+
+int sum;
+int sumOfNodes(n *root){
+    if(root==NULL){
+        return 0;
+    }else{
+        sum=sum+root->data;
+        sumOfNodes(root->left);
+        sumOfNodes(root->right);
+        return sum;
+        // return root->data+sumOfNodes(root->left)+sumOfNodes(root->right);
+    }
+}
+
+//tobesolved
+int height;
+int max(int num1,int num2){
+    if(num1>num2){
+        return num1;
+    }else if(num2>num1){
+        return num2;
+    }else{
+        return num1;
+    }
+}
+int heightOfNode(n *root){
+    if(root==NULL){
+        return 0;
+    }else{
+        return max(heightOfNode(root->left),heightOfNode(root->right))+1;
+    }
+}
+
 void printTree(n *root){
     char ch;
     do{
@@ -275,4 +315,12 @@ void main(){
 
     printTree(root);
 
+    int num=countNodes(root);
+    printf("\nNum of nodes: %d\n",num);
+
+    int sum=sumOfNodes(root);
+    printf("\nSum of nodes: %d\n",sum);
+
+    int height=heightOfNode(root);
+    printf("\nHeight: %d\n",height);
 }
