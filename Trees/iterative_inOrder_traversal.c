@@ -140,7 +140,6 @@ int sumOfNodes(n *root){
     }
 }
 
-//tobesolved
 int height;
 int max(int num1,int num2){
     if(num1>num2){
@@ -231,6 +230,7 @@ void main(){
 }
 
 /*
+trial tree:
                         1
                       /    \
                     2      6
