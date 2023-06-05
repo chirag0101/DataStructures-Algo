@@ -6,7 +6,7 @@ typedef struct stack{
     struct stack *next;
 }s;
 
-s *head=NULL
+s *head=NULL;
 
 s* createNode(){
     s *newNode=(s*)malloc(sizeof(s));
