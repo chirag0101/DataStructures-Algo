@@ -38,8 +38,8 @@ n* constructBT(int in[],int post[],int inStart,int inEnd,int poStart,int poEnd){
     }
 
     int Llen=idx-inStart;
-    temp->left=constructBT(in,post,inStart,idx-1,poEnd-Llen,poEnd-1);
-    temp->right=constructBT(in,post,idx+1,inEnd,poStart,poEnd-Llen-1);
+    temp->left = constructBT(in, post, inStart, idx - 1, poStart, poStart + Llen - 1);
+    temp->right = constructBT(in, post, idx + 1, inEnd, poStart + Llen, poEnd - 1);
     return temp;
 }
 
