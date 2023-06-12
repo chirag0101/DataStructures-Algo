@@ -209,6 +209,46 @@ void addFirst(){
     }
 }
 
+void delFirst(){
+    if (head==NULL){
+        printf("\nLL empty!");
+        return;
+    }else{
+        n *temp=head->next;
+        free(head);
+        head=temp;
+    }
+}
+
+void delLast(){
+    if (head==NULL){
+        printf("\nLL empty!");
+        return;
+    }else{
+        n *temp=head;
+        while (temp->next->next!=NULL){
+            temp=temp->next;
+        }
+        free(temp->next->next);
+        temp->next=NULL;
+    }
+}
+
+void addLast(){
+    if (head==NULL){
+        addFirst();
+        return;
+    }else{
+            n *newNode=createNode();
+            n *temp=head;
+            while (temp->next!=NULL){
+                temp=temp->next;
+            }
+            temp->next=newNode;
+            printf("\nNode added at Last!");
+        }
+}
+
 void displayLL(){
     if(head==NULL){
         printf("\nLL empty!");
@@ -242,6 +282,14 @@ int main(){
 
         case 2:
             addLast();
+            break;
+
+        case 3:
+            delFirst();
+            break;
+
+        case 4:
+            delLast();
             break;
 
         case 5:
