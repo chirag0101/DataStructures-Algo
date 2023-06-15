@@ -12,7 +12,7 @@ void ssort(char str[],int size){
                 str[j]=str[j+1];
                 str[j+1]=store;
             }
-        }
+        
     }
 }
 
