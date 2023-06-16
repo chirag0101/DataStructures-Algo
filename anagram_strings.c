@@ -1,6 +1,6 @@
 //Anagram strings: if all the alphabets in str1 are present in str2 then they both are anagram to each other.
 //Method:Sorted both strings and then compared both of them
-#include<stdio.h>
+#include<stdio.h
 #include<string.h>
 
 void ssort(char str[],int size){
